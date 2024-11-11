@@ -1,9 +1,9 @@
+import { createServer } from "node:http";
 // index.ts
 import { env } from "@/common/utils/envConfig";
 import { app, logger } from "@/server";
-import { createServer } from "http";
-import { Server } from "socket.io";
 import initializeSocket from "@/socket";
+import { Server } from "socket.io";
 
 // Create HTTP server that wraps the Express app
 const httpServer = createServer(app);
