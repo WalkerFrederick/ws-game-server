@@ -4,6 +4,7 @@ import { env } from "@/common/utils/envConfig";
 import { app, logger } from "@/server";
 import initializeSocket from "@/socket";
 import { Server } from "socket.io";
+import initializeGameSocketServer from "./game-socket-server/GameSocketServer";
 
 // Create HTTP server that wraps the Express app
 const httpServer = createServer(app);
@@ -17,8 +18,8 @@ const io = new Server(httpServer, {
 });
 
 // Initialize Socket.IO logic
-initializeSocket(io);
-
+//initializeSocket(io);
+initializeGameSocketServer(io);
 // Start listening on the specified port
 httpServer.listen(env.PORT, () => {
   const { NODE_ENV, HOST, PORT } = env;
