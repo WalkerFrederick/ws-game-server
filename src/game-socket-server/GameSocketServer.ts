@@ -13,7 +13,7 @@ const games: { [lobbyCode: string]: GameState } = {}; // Stores all active games
 
 // CONSTANTS
 export const CONSTANTS = {
-    ROUND_TIME_LIMIT_SECONDS: 8,
+    ROUND_TIME_LIMIT_SECONDS: 9999,
     MAX_ROUNDS: 4,
     COUNTDOWN_SECONDS: 5,
     RECONNECT_TIME_SECONDS: 60,

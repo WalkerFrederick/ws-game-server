@@ -3,6 +3,7 @@ import { CONSTANTS } from "./GameSocketServer";
 import startCountdown from "./functions/startCountdown";
 import startRound from "./functions/startRound";
 import type { GameState, Player } from "./types/types";
+import { EXAMPLE_DECK } from "./cards/cardDefinitions";
 
 type handleClientJoinEventArgs = {
     username: string;
@@ -86,6 +87,7 @@ export const handleClientJoinEvent = (args: handleClientJoinEventArgs): void => 
     // Add new player to the game
     const newPlayer: Player = {
         socketId: socket.id,
+        cards: EXAMPLE_DECK,
         username,
         matchReady: false,
         roundReady: false,
