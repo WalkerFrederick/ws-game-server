@@ -64,11 +64,11 @@ export const handleClientJoinEvent = (args: handleClientJoinEventArgs): void => 
 
         socket.join(gameId);
         socket.emit("server:notification", { type: "success", message: "Reconnected to the game." });
-        io.to(gameId).emit("server:player-reconnected", game);
 
         // Resume game if it was paused
         if (game.isPaused) {
             game.isPaused = false;
+            io.to(gameId).emit("server:player-reconnected", game);
             io.to(gameId).emit("server:notification", { type: "info", message: "Resuming game..." });
         }
         return;
